@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: predccion_titanic
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn predccion_titanic.wsgi:application"
+    envVars:
+      - key: DJANGO_SECRET_KEY
+        generateValue: true
+      - key: DJANGO_DEBUG
+        value: False
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: PORT
+        value: 8000
