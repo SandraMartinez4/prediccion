@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<head><meta charset="UTF-8"><title>Predicción Titanic</title></head>
+<body>
+<h1>Predicción de Supervivencia</h1>
+<form method="post">{% csrf_token %}
+<label>Clase (1,2,3): <input name="pclass" required></label><br>
+<label>Sexo (0=Hombre,1=Mujer): <input name="sex" required></label><br>
+<label>Edad: <input name="age" required></label><br>
+<label>Tarifa (Fare): <input name="fare" required></label><br>
+<button type="submit">Predecir</button>
+</form>
+{% if result %}
+<p>Resultado: {{ result }}</p>
+<p>Probabilidad: {{ prob }}%</p>
+{% endif %}
+</body>
+</html>
